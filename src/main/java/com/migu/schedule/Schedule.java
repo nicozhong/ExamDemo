@@ -11,45 +11,42 @@ import java.util.List;
  */
 public class Schedule {
 
+    /**
+     * 任务管理器
+     */
+    private NodeTaskManage nodeTaskManage = new NodeTaskManage();
 
     public int init() {
-        // TODO 方法未实现
-        return ReturnCodeKeys.E000;
+        return nodeTaskManage.init();
     }
 
 
     public int registerNode(int nodeId) {
-        // TODO 方法未实现
-        return ReturnCodeKeys.E000;
+        return nodeTaskManage.registerNode(nodeId);
     }
 
     public int unregisterNode(int nodeId) {
-        // TODO 方法未实现
-        return ReturnCodeKeys.E000;
+        return nodeTaskManage.unregisterNode(nodeId);
     }
 
 
     public int addTask(int taskId, int consumption) {
-        // TODO 方法未实现
-        return ReturnCodeKeys.E000;
+        return nodeTaskManage.addTask(taskId, consumption);
     }
 
 
     public int deleteTask(int taskId) {
-        // TODO 方法未实现
-        return ReturnCodeKeys.E000;
+        return nodeTaskManage.deleteTask(taskId);
     }
 
 
     public int scheduleTask(int threshold) {
-        // TODO 方法未实现
-        return ReturnCodeKeys.E000;
+        return nodeTaskManage.scheduleTask(threshold);
     }
 
 
     public int queryTaskStatus(List<TaskInfo> tasks) {
-        // TODO 方法未实现
-        return ReturnCodeKeys.E000;
+        return nodeTaskManage.queryTaskStatus(tasks);
     }
 
 }

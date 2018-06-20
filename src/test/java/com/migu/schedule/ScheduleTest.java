@@ -205,17 +205,17 @@ public class ScheduleTest
         int actual = schedule.init();
         schedule.registerNode(1);
         schedule.registerNode(2);
-        
+
         schedule.addTask(1, 15);
         schedule.addTask(2, 10);
         schedule.addTask(3, 30);
         schedule.addTask(4, 35);
         schedule.addTask(5, 125);
         schedule.addTask(6, 115);
-        
+
         actual = schedule.scheduleTask(10);
         schedule.deleteTask(5);
-        
+
         actual = schedule.scheduleTask(10);
         Assert.assertEquals(ReturnCodeKeys.E014, actual);
     }
