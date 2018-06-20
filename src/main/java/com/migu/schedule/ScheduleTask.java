@@ -78,8 +78,8 @@ public class ScheduleTask {
                 continue;
             }
 
-            //Integer sTaskId = sScheduleInfo.getMinTaskId();
-            Integer sTaskId = getMinSumConsumptionTaskId(sScheduleInfo.getNodeId());
+            Integer sTaskId = sScheduleInfo.getMinTaskId();
+            //Integer sTaskId = getMinSumConsumptionTaskId(sScheduleInfo.getNodeId());
             int gap = sScheduleInfo.getSumConsumption() - tScheduleInfo.getSumConsumption();
             if (gap >  threshold && checkIsMigrateTask(tScheduleInfo, sScheduleInfo, sTaskId))
             {
@@ -99,27 +99,6 @@ public class ScheduleTask {
         {
             System.out.println(scheduleInfo);
         }
-//        while (isMigrate)
-//        {
-//            List<ScheduleInfo> scheduleInfoList = sortScheduleInfo();
-//            ScheduleInfo tScheduleInfo = scheduleInfoList.get(0);
-//            ScheduleInfo sScheduleInfo = scheduleInfoList.get(nodeSize -1);
-//            Integer keyIndex = 0;
-//            Integer sTaskId = sScheduleInfo.getTaskIdIndexMap().get(keyIndex);
-//            int gap = sScheduleInfo.getSumConsumption() - tScheduleInfo.getSumConsumption();
-//            if (gap >  threshold && checkIsMigrateTask(tScheduleInfo, sScheduleInfo, sTaskId))
-//            {
-//                rc = 1;
-//                isMigrate = migrateTask(sTaskId, sScheduleInfo.getNodeId(), tScheduleInfo.getNodeId(), false);
-//            }
-//            else
-//            {
-//                isMigrate = false;
-//            }
-//            count ++;
-//            System.out.println(new StringBuilder("line:").append(88)
-//                    .append(",count:").append(count).toString());
-//        }
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -169,7 +148,7 @@ public class ScheduleTask {
                     TaskInfoExt maxNodeMinTaskInfoExt = taskInfoMap.get(maxNodeId);
                     TaskInfoExt minNodeMaxTaskInfoExt = taskInfoMap.get(minNodeId);
                     //需要相等才迁移
-                    if (maxNodeId < minNodeId && maxNodeMinTaskId < minNodeMaxTaskId && maxNodeMinTaskInfoExt.getConsumption().equals(minNodeMaxTaskInfoExt.getConsumption()))
+                    if (/*maxNodeId < minNodeId && */maxNodeMinTaskId < minNodeMaxTaskId && maxNodeMinTaskInfoExt.getConsumption().equals(minNodeMaxTaskInfoExt.getConsumption()))
                     {
                         isMigrate = migrateTask(maxNodeMinTaskId, maxNodeId, minNodeId, false);
                         isMigrate = migrateTask(minNodeMaxTaskId, minNodeId, maxNodeId, false);
